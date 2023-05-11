@@ -1,4 +1,4 @@
-import { themeVars } from "../../vanilla-extract/themes/theme.css";
+import { themeVars } from "../../../vanilla-extract/themes/theme.css";
 
 export const metadata = {
   title: "Create Next App",

@@ -1,6 +1,6 @@
-import { Button } from "../theme-ui/components/Button/Button";
-import { CTASection } from "../theme-ui/components/CTASection/CTASection";
-import { Heading } from "../theme-ui/components/Heading/Heading";
+import { Button } from "../../../tailwind/components/Button/Button";
+import { CTASection } from "../../../tailwind/components/CTASection/CTASection";
+import { Heading } from "../../../tailwind/components/Heading/Heading";
 
 export default function Home() {
   return (
@@ -41,7 +41,6 @@ export default function Home() {
           alt: "random picture",
         }}
       />
-
       <Heading as="h1" size="h1" variant="primary">
         I am a h1 primary heading with a size of h1
       </Heading>

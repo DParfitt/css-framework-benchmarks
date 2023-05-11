@@ -1,10 +1,12 @@
-import { Button } from "../../vanilla-extract/components/Button/Button";
-import { CTASection } from "../../vanilla-extract/components/CTASection/CTASection";
-import { Heading } from "../../vanilla-extract/components/Heading/Heading";
+import { ThemeProvider } from "theme-ui";
+import { Button } from "../../theme-ui/components/Button/Button";
+import { CTASection } from "../../theme-ui/components/CTASection/CTASection";
+import { Heading } from "../../theme-ui/components/Heading/Heading";
+import * as theme from "../../theme-ui/theme";
 
 export default function Home() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CTASection
         theme="primary"
         title="I like Bangkok"
@@ -41,6 +43,7 @@ export default function Home() {
           alt: "random picture",
         }}
       />
+
       <Heading as="h1" size="h1" variant="primary">
         I am a h1 primary heading with a size of h1
       </Heading>
@@ -261,6 +264,6 @@ export default function Home() {
 
       <Button variant="solid">I am a solid variant</Button>
       <Button variant="outline">I am an outline variant</Button>
-    </>
+    </ThemeProvider>
   );
 }

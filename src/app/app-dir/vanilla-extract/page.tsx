@@ -1,6 +1,6 @@
-import { Button } from "../../tailwind/components/Button/Button";
-import { CTASection } from "../../tailwind/components/CTASection/CTASection";
-import { Heading } from "../../tailwind/components/Heading/Heading";
+import { Button } from "../../../vanilla-extract/components/Button/Button";
+import { CTASection } from "../../../vanilla-extract/components/CTASection/CTASection";
+import { Heading } from "../../../vanilla-extract/components/Heading/Heading";
 
 export default function Home() {
   return (
