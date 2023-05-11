@@ -4,6 +4,8 @@ import {
   AntarcticaBetaExpandedBlack,
 } from "../styles/fonts";
 
+import "./reset.css";
+
 export default function MyApp({ Component, pageProps }: any) {
   return (
     <div

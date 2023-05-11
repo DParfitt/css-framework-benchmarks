@@ -6,7 +6,7 @@ const marginSpace = { ...vars.space, auto: "auto" };
 
 // Add css logival properties? https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
 // Exported so storybook can access style options
-export const responsiveProperties = defineProperties({
+const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
     tablet: {
@@ -116,10 +116,10 @@ const unresponsiveProperties = defineProperties({
 });
 
 // Export all styles so we can use these in some storybook stories
-export const atomicStyles = {
-  ...responsiveProperties.styles,
-  ...unresponsiveProperties.styles,
-};
+// export const atomicStyles = {
+//   ...responsiveProperties.styles,
+//   ...unresponsiveProperties.styles,
+// };
 
 export const atoms = createSprinkles(
   responsiveProperties,

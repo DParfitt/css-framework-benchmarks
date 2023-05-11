@@ -1,10 +1,11 @@
-import { Button } from "../../../vanilla-extract/components/Button/Button";
-import { CTASection } from "../../../vanilla-extract/components/CTASection/CTASection";
-import { Heading } from "../../../vanilla-extract/components/Heading/Heading";
+import { Button } from "../../linaria/components/Button/Button";
+import { CTASection } from "../../linaria/components/CTASection/CTASection";
+import { Heading } from "../../linaria/components/Heading/Heading";
+import { theme } from "../../linaria/theme.linaria.global";
 
 export default function Home() {
   return (
-    <>
+    <div className={theme}>
       <CTASection
         theme="primary"
         title="I like Bangkok"
@@ -17,7 +18,7 @@ export default function Home() {
           alt: "random picture",
         }}
       />
-      {/* <CTASection
+      <CTASection
         theme="secondary"
         title="I like Bangkok"
         subtitle="It is a great city"
@@ -40,8 +41,9 @@ export default function Home() {
           src: "https://fastly.picsum.photos/id/56/2880/1920.jpg?hmac=BIplhYgNZ9bsjPXYhD0xx6M1yPgmg4HtthKkCeJp6Fk",
           alt: "random picture",
         }}
-      /> */}
-      {/* <Heading as="h1" size="h1" variant="primary">
+      />
+
+      <Heading as="h1" size="h1" variant="primary">
         I am a h1 primary heading with a size of h1
       </Heading>
       <Heading as="h2" size="h1" variant="primary">
@@ -260,7 +262,7 @@ export default function Home() {
       </Heading>
 
       <Button variant="solid">I am a solid variant</Button>
-      <Button variant="outline">I am an outline variant</Button> */}
-    </>
+      <Button variant="outline">I am an outline variant</Button>
+    </div>
   );
 }

@@ -13,9 +13,11 @@ export default function Home() {
     >
       <Link href="/app-dir/tailwind">Tailwind App Dir</Link>
       <Link href="/app-dir/vanilla-extract">Vanilla Extract App Dir</Link>
+      <Link href="/app-dir/linaria">Linaria App Dir</Link>
       <Link href="/page-dir/theme-ui">Theme UI Pages dir</Link>
       <Link href="/page-dir/tailwind">Tailwind Pages dir</Link>
       <Link href="/page-dir/vanilla-extract">Vanilla Extract Pages dir</Link>
+      <Link href="/page-dir/linaria">Linaria Pages dir</Link>
     </main>
   );
 }

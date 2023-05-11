@@ -2,19 +2,22 @@
   "name": "next-styling-poc",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true yarn build",
-    "benchmark": "npx unlighthouse --site https://css-framework-benchmarks.vercel.app",
+    "benchmark": "unlighthouse",
     "postinstall": "patch-package"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@linaria/atomic": "^4.2.10",
+    "@linaria/babel-preset": "^4.4.5",
+    "@linaria/core": "^4.2.10",
+    "@linaria/react": "^4.3.8",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -35,10 +38,12 @@
     "@next/bundle-analyzer": "^13.4.1",
     "@vanilla-extract/next-plugin": "^2.1.2",
     "autoprefixer": "^10.4.14",
+    "next-with-linaria": "^0.5.0",
     "patch-package": "^7.0.0",
     "postcss": "^8.4.23",
     "postinstall-postinstall": "^2.1.0",
     "tailwindcss": "^3.3.2",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "unlighthouse": "^0.5.1"
   }
 }

@@ -1,7 +1,7 @@
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { atoms } from "../../css/sprinkles.css";
 import { createVar, style } from "@vanilla-extract/css";
 import { vars } from "../../css/theme.css";
+import { createComponentTheme } from "../../utils/createComponentTheme";
 
 const buttonBackground = createVar();
 const buttonBorder = createVar();
@@ -27,139 +27,141 @@ const afterStyles = style({
   },
 });
 
-export const button = recipe({
-  base: [
-    atoms({
-      fontSize: 3,
-      lineHeight: "none",
-      textTransform: "uppercase",
-      border: "none",
-      paddingY: "gutter",
-      paddingX: "large",
-      backgroundColor: "transparent",
-      position: "relative",
-      outline: "none",
-      cursor: "pointer",
-    }),
-    {
-      backgroundSize: "cover",
-      letterSpacing: "0.045em",
-      ":active": {
-        backgroundImage: "none",
+export const button = createComponentTheme(({ atoms }) =>
+  recipe({
+    base: [
+      atoms({
+        fontSize: 3,
+        lineHeight: "none",
+        textTransform: "uppercase",
+        border: "none",
+        paddingY: "gutter",
+        paddingX: "large",
+        backgroundColor: "transparent",
+        position: "relative",
+        outline: "none",
+        cursor: "pointer",
+      }),
+      {
+        backgroundSize: "cover",
+        letterSpacing: "0.045em",
+        ":active": {
+          backgroundImage: "none",
+        },
       },
-    },
-  ],
-  variants: {
-    variant: {
-      solid: [
-        afterStyles,
-        atoms({ fontFamily: "condensed", color: "primary" }),
-        {
-          vars: {
-            [buttonBackground]: vars.color.accent,
-          },
-          ":hover": {
-            vars: {
-              [buttonBackground]: vars.color.primaryHover,
-            },
-            color: vars.color.white,
-          },
-          "&:active, &.active": {
-            color: vars.color.primary,
+    ],
+    variants: {
+      variant: {
+        solid: [
+          afterStyles,
+          atoms({ fontFamily: "condensed", color: "primary" }),
+          {
             vars: {
               [buttonBackground]: vars.color.accent,
             },
-          },
-          "&:disabled": {
-            cursor: "unset",
-            color: vars.color.white,
-            vars: {
-              [buttonBackground]: vars.color.muted,
+            ":hover": {
+              vars: {
+                [buttonBackground]: vars.color.primaryHover,
+              },
+              color: vars.color.white,
+            },
+            "&:active, &.active": {
+              color: vars.color.primary,
+              vars: {
+                [buttonBackground]: vars.color.accent,
+              },
+            },
+            "&:disabled": {
+              cursor: "unset",
+              color: vars.color.white,
+              vars: {
+                [buttonBackground]: vars.color.muted,
+              },
             },
           },
-        },
-        focusStyles,
-      ],
-      outline: [
-        afterStyles,
-        atoms({ fontFamily: "condensed", color: "primary" }),
-        {
-          vars: {
-            [buttonBackground]: vars.color.transparent,
-            [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primary}`,
-          },
-          ":hover": {
-            color: vars.color.primaryHover,
+          focusStyles,
+        ],
+        outline: [
+          afterStyles,
+          atoms({ fontFamily: "condensed", color: "primary" }),
+          {
             vars: {
-              [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primaryHover}`,
-            },
-          },
-          "&:active, &.active": {
-            color: vars.color.primary,
-            vars: {
+              [buttonBackground]: vars.color.transparent,
               [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primary}`,
             },
+            ":hover": {
+              color: vars.color.primaryHover,
+              vars: {
+                [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primaryHover}`,
+              },
+            },
+            "&:active, &.active": {
+              color: vars.color.primary,
+              vars: {
+                [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primary}`,
+              },
+            },
+            "&:disabled": {
+              cursor: "unset",
+              color: vars.color.muted,
+              vars: {
+                [buttonBorder]: `${vars.border.styles.normal} ${vars.color.muted}`,
+              },
+            },
           },
-          "&:disabled": {
-            cursor: "unset",
-            color: vars.color.muted,
+          focusStyles,
+        ],
+        text: {},
+        circle: {},
+        link: {},
+        none: {},
+      },
+      theme: {
+        primary: {},
+        secondary: {},
+      },
+    },
+    compoundVariants: [
+      {
+        variants: {
+          variant: "solid",
+          theme: "secondary",
+        },
+        style: {
+          color: vars.color.white,
+          vars: {
+            [buttonBackground]: vars.color.primary,
+          },
+          ":hover": {
+            color: vars.color.white,
             vars: {
-              [buttonBorder]: `${vars.border.styles.normal} ${vars.color.muted}`,
+              [buttonBackground]: vars.color.primaryHover,
             },
           },
         },
-        focusStyles,
-      ],
-      text: {},
-      circle: {},
-      link: {},
-      none: {},
-    },
-    theme: {
-      primary: {},
-      secondary: {},
-    },
-  },
-  compoundVariants: [
-    {
-      variants: {
-        variant: "solid",
-        theme: "secondary",
       },
-      style: {
-        color: vars.color.white,
-        vars: {
-          [buttonBackground]: vars.color.primary,
+      {
+        variants: {
+          variant: "outline",
+          theme: "secondary",
         },
-        ":hover": {
-          color: vars.color.white,
+        style: {
+          color: vars.color.primaryHover,
           vars: {
-            [buttonBackground]: vars.color.primaryHover,
+            [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primaryHover}`,
+          },
+          ":hover": {
+            color: vars.color.white,
+            vars: {
+              [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primary}`,
+              [buttonBackground]: vars.color.primary,
+            },
           },
         },
       },
-    },
-    {
-      variants: {
-        variant: "outline",
-        theme: "secondary",
-      },
-      style: {
-        color: vars.color.primaryHover,
-        vars: {
-          [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primaryHover}`,
-        },
-        ":hover": {
-          color: vars.color.white,
-          vars: {
-            [buttonBorder]: `${vars.border.styles.normal} ${vars.color.primary}`,
-            [buttonBackground]: vars.color.primary,
-          },
-        },
-      },
-    },
-  ],
-});
+    ],
+  })
+);
 
 // Get the type
 export type ButtonVariants = RecipeVariants<typeof button>;
