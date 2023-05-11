@@ -72,6 +72,7 @@ export const CTASection = ({
             alt={media?.alt}
             width={2880}
             height={1920}
+            priority
           />
         </Box>
       )}

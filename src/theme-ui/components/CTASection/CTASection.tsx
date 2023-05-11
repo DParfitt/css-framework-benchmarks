@@ -70,6 +70,7 @@ export const CTASection = ({
             alt={media?.alt}
             width={2880}
             height={1920}
+            priority
             sx={{
               width: "100%",
               height: "100%",

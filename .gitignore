@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/nextjs,node,macos,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=nextjs,node,macos,visualstudiocode
 
+.unlighthouse
+
 ### macOS ###
 # General
 .DS_Store

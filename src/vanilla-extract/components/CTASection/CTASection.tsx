@@ -53,6 +53,7 @@ export const CTASection = ({
             className={mediaStyles}
             src={media.src}
             alt={media?.alt}
+            priority
           />
         </Box>
       )}
